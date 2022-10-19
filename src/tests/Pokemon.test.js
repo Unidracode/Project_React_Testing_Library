@@ -6,28 +6,18 @@ import renderWithRouter from '../renderWithRouter';
 
 describe('Testa componente <Pokemon.js />', () => {
   const pokeName = 'pokemon-name';
-  const pokeType = 'pokemon-type';
-  const pokeWeight = 'pokemon-weight';
 
   test('Teste se é renderizado um card com as informações de determinado pokémon', () => {
     renderWithRouter(<App />);
-    const pokemonName = screen.getByTestId(pokeName);
-    const pokemonType = screen.getByTestId(pokeType);
-    const pokemonWeight = screen.getByTestId(pokeWeight);
-    const value = pokemonWeight.innerHTML;
-    const name = pokemonName.innerHTML;
-    const type = pokemonType.innerHTML;
-    const typePoke = screen.getAllByText(`${type}`)[0];
-    const txtWeight = screen.getByText(value);
-    const altImg = screen.getByAltText(`${name} sprite`);
-    expect(pokemonName).toBeInTheDocument();
-    expect(pokemonType).toBeInTheDocument();
-    expect(pokemonWeight).toBeInTheDocument();
-    expect(pokemonType).toContainHTML(`<p data-testid="pokemon-type">${type}</p>`);
-    expect(typePoke).toBeInTheDocument();
-    expect(txtWeight).toBeInTheDocument();
-    expect(altImg).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
-    expect(altImg).toBeInTheDocument();
+    const pikachuName = screen.getByTestId('pokemon-name');
+    expect(pikachuName).toHaveTextContent('Pikachu');
+    const pikachuType = screen.getByTestId('pokemon-type');
+    expect(pikachuType).toHaveTextContent('Electric');
+    const pikachuWeight = screen.getByTestId('pokemon-weight');
+    expect(pikachuWeight).toHaveTextContent('Average weight: 6.0 kg');
+
+    const pikachuImg = screen.getByRole('img', { name: /Pikachu sprite/i });
+    expect(pikachuImg).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
   });
   test('Teste se o card do pokémon indicado na Pokédex contém um link de navegação', () => {
     const { history } = renderWithRouter(<App />);
