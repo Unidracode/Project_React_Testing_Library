@@ -1,7 +1,7 @@
 import React from 'react';
+import { screen } from '@testing-library/react';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
-import { screen } from '@testing-library/react';
 
 describe('Testa Componente <App.js />', () => {
   test('O primeiro link deve possuir o texto Home', () => {
