@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
-describe('Teste o componente <Pokedex.js />', () => {
+describe('Testa componente <Pokedex.js />', () => {
   test('Teste se a página contém um heading h2 com o texto Encountered pokémons', () => {
     renderWithRouter(<App />);
     const header = screen.getByRole('heading', { level: 2, name: /Encountered pokémons/i });
