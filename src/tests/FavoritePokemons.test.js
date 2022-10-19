@@ -1,14 +1,13 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
+import { FavoritePokemons } from '../pages';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Testa componente <FavoritePokemons.js />', () => {
   test('Teste se é exibida na tela a mensagem No favorite pokemon found', () => {
-    renderWithRouter(<App />);
-    const linkFav = screen.getByText(/Favorite Pokémons/i);
-    userEvent.click(linkFav);
+    renderWithRouter(<FavoritePokemons />);
     const notFound = screen.getByText(/No favorite pokemon found/i);
     expect(notFound).toBeInTheDocument();
   });
