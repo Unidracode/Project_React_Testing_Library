@@ -14,4 +14,4 @@ describe('Testa component <NotFound.js />', () => {
     const image = screen.getByAltText(/Pikachu crying/i).src;
     expect(image).toBe('https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif');
   });
-})
+});
